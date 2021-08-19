@@ -1,0 +1,35 @@
+{
+    "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "jsx-a11y"
+],
+    "extends": [
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+],
+    "parserOptions": {
+        "project": "./tsconfig.json",
+    "ecmaVersion": 2020,
+        "sourceType": "module"
+},
+    "env": {
+    "es6": true,
+        "browser": true,
+        "node": true
+},
+    "rules": {
+        "no-bitwise": "off",
+        "react/prop-types": "off",
+        "no-debugger": "off",
+        "no-console": 0,
+        "prettier/prettier": [
+            "warn", {
+                "semi": false
+            }
+        ]
+}
+}
