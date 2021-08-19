@@ -1,12 +1,12 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Redirect, useLocation } from "react-router-dom"
-import OAuth from "./OAuth"
+import OAuth, { IOAuthLocation } from "./OAuth"
 
-const useOAuth = (method: OAuth) => {
+const useOAuth = (method: OAuth): JSX.Element => {
   let oAuthToken: string | undefined
   const [isAuthComplete, setAuthComplete] = useState(false)
-  const location = useLocation()
+  const location = useLocation<IOAuthLocation>()
 
   useEffect(() => {
     if (oAuthToken) {
@@ -25,7 +25,8 @@ const useOAuth = (method: OAuth) => {
     }
   }, [oAuthToken])
 
-  if (location.hash) oAuthToken = method.extractToken(location.hash)
+  if (method.isValidLocation(location))
+    oAuthToken = method.extractToken(location)
   else window.location.href = method.getRedirectURL()
 
   return <>{isAuthComplete && <Redirect to="/" />}</>

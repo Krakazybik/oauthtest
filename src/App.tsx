@@ -1,13 +1,13 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
-import OAuth from "./tools/OAuth"
+import Login from "./tools/Login"
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Switch>
         <Route path="/oauth">
-          <OAuth />
+          <Login />
         </Route>
       </Switch>
     </div>

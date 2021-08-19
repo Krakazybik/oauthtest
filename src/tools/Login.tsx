@@ -1,9 +1,8 @@
 import React from "react"
-import { useLocation } from "react-router-dom"
 import useOAuth from "../hooks/useOAuth"
 import YandexOAuth from "../hooks/YandexOAuth"
 
-const OAuth: React.FC = () => {
+const Login: React.FC = () => {
   const oauth = useOAuth(
     new YandexOAuth(
       "http://localhost:3000/oauth",
@@ -13,4 +12,4 @@ const OAuth: React.FC = () => {
   return <div>{oauth} </div>
 }
 
-export default OAuth
+export default Login
