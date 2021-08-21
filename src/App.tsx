@@ -4,7 +4,7 @@ import Login from "./tools/Login"
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div>
       <Switch>
         <Route path="/oauth">
           <Login />
